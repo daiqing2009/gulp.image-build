@@ -3,6 +3,7 @@ Gulpfile.js that works on js files
 
 ## Dependencies
 - ["gulp": "^3.8.11"](https://npmjs.org/package/gulp/)
+- ["del": "^1.2.0"](https://www.npmjs.com/package/del/)
 - ["gulp-cache": "^0.2.9"](https://www.npmjs.com/package/gulp-cache/)
 - ["gulp-imagemin": "^0.3.1"](https://www.npmjs.com/package/gulp-imagemin/)
 - ["gulp-if": "^1.2.5"](https://www.npmjs.com/package/gulp-if/)
@@ -12,7 +13,6 @@ Gulpfile.js that works on js files
 - ["gulp-sync": "^0.1.4"](https://www.npmjs.com/package/gulp-sync/)
 - ["gulp.spritesmith": "^0.10.0"](https://www.npmjs.com/package/gulp.spritesmith/)
 - ["imagemin-pngquant": "^1.2.0"](https://www.npmjs.com/package/imagemin-pngquant/)
-- ["gulp-rimraf": "^0.1.1"](https://www.npmjs.com/package/gulp-rimraf/)
 
 ## Useage
 Download repository and in your command line run `npm install`, this will download `node_modules` and you are about to go.

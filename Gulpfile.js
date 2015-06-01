@@ -1,4 +1,5 @@
 // gulp modules
+var del = require('del');
 var gulp = require('gulp');
 var sync = require('gulp-sync')(gulp);
 var $ = require('gulp-load-plugins')();
@@ -12,7 +13,7 @@ gulp.task('cache:clear', function(done) {
 
 // clean task
 gulp.task('image:clean', function() {
-	gulp.src('./dist/assets/images/*', {read: false}).pipe($.rimraf({force: true}));
+	del(['./dist/assets/images/*']);
 });
 
 // sprite task
