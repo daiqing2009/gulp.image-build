@@ -12,142 +12,166 @@ At the bottom of this section, we provide information about the spritesheet itse
 $spritesheet: width height image $spritesheet-sprites;
 */
 $facebook-name: 'facebook';
-$facebook-x: 35px;
+$facebook-x: 0px;
 $facebook-y: 0px;
-$facebook-offset-x: -35px;
+$facebook-offset-x: 0px;
 $facebook-offset-y: 0px;
 $facebook-width: 35px;
 $facebook-height: 36px;
-$facebook-total-width: 140px;
-$facebook-total-height: 108px;
+$facebook-total-width: 105px;
+$facebook-total-height: 72px;
 $facebook-image: 'icons.png';
-$facebook: (35px, 0px, -35px, 0px, 35px, 36px, 140px, 108px, 'icons.png', 'facebook', );
-$facebook-hover-name: 'facebook_hover';
-$facebook-hover-x: 105px;
-$facebook-hover-y: 0px;
-$facebook-hover-offset-x: -105px;
-$facebook-hover-offset-y: 0px;
-$facebook-hover-width: 35px;
-$facebook-hover-height: 36px;
-$facebook-hover-total-width: 140px;
-$facebook-hover-total-height: 108px;
-$facebook-hover-image: 'icons.png';
-$facebook-hover: (105px, 0px, -105px, 0px, 35px, 36px, 140px, 108px, 'icons.png', 'facebook_hover', );
+$facebook: (0px, 0px, 0px, 0px, 35px, 36px, 105px, 72px, 'icons.png', 'facebook', );
 $google-plus-name: 'google-plus';
-$google-plus-x: 70px;
+$google-plus-x: 35px;
 $google-plus-y: 0px;
-$google-plus-offset-x: -70px;
+$google-plus-offset-x: -35px;
 $google-plus-offset-y: 0px;
 $google-plus-width: 35px;
 $google-plus-height: 36px;
-$google-plus-total-width: 140px;
-$google-plus-total-height: 108px;
+$google-plus-total-width: 105px;
+$google-plus-total-height: 72px;
 $google-plus-image: 'icons.png';
-$google-plus: (70px, 0px, -70px, 0px, 35px, 36px, 140px, 108px, 'icons.png', 'google-plus', );
-$google-plus-hover-name: 'google-plus_hover';
-$google-plus-hover-x: 0px;
-$google-plus-hover-y: 36px;
-$google-plus-hover-offset-x: 0px;
-$google-plus-hover-offset-y: -36px;
-$google-plus-hover-width: 35px;
-$google-plus-hover-height: 36px;
-$google-plus-hover-total-width: 140px;
-$google-plus-hover-total-height: 108px;
-$google-plus-hover-image: 'icons.png';
-$google-plus-hover: (0px, 36px, 0px, -36px, 35px, 36px, 140px, 108px, 'icons.png', 'google-plus_hover', );
+$google-plus: (35px, 0px, -35px, 0px, 35px, 36px, 105px, 72px, 'icons.png', 'google-plus', );
 $odno-name: 'odno';
-$odno-x: 35px;
-$odno-y: 36px;
-$odno-offset-x: -35px;
-$odno-offset-y: -36px;
+$odno-x: 70px;
+$odno-y: 0px;
+$odno-offset-x: -70px;
+$odno-offset-y: 0px;
 $odno-width: 35px;
 $odno-height: 36px;
-$odno-total-width: 140px;
-$odno-total-height: 108px;
+$odno-total-width: 105px;
+$odno-total-height: 72px;
 $odno-image: 'icons.png';
-$odno: (35px, 36px, -35px, -36px, 35px, 36px, 140px, 108px, 'icons.png', 'odno', );
-$odno-hover-name: 'odno_hover';
-$odno-hover-x: 70px;
-$odno-hover-y: 36px;
-$odno-hover-offset-x: -70px;
-$odno-hover-offset-y: -36px;
-$odno-hover-width: 35px;
-$odno-hover-height: 36px;
-$odno-hover-total-width: 140px;
-$odno-hover-total-height: 108px;
-$odno-hover-image: 'icons.png';
-$odno-hover: (70px, 36px, -70px, -36px, 35px, 36px, 140px, 108px, 'icons.png', 'odno_hover', );
+$odno: (70px, 0px, -70px, 0px, 35px, 36px, 105px, 72px, 'icons.png', 'odno', );
 $twitter-name: 'twitter';
 $twitter-x: 0px;
-$twitter-y: 0px;
+$twitter-y: 36px;
 $twitter-offset-x: 0px;
-$twitter-offset-y: 0px;
+$twitter-offset-y: -36px;
 $twitter-width: 35px;
 $twitter-height: 36px;
-$twitter-total-width: 140px;
-$twitter-total-height: 108px;
+$twitter-total-width: 105px;
+$twitter-total-height: 72px;
 $twitter-image: 'icons.png';
-$twitter: (0px, 0px, 0px, 0px, 35px, 36px, 140px, 108px, 'icons.png', 'twitter', );
-$twitter-hover-name: 'twitter_hover';
-$twitter-hover-x: 105px;
-$twitter-hover-y: 36px;
-$twitter-hover-offset-x: -105px;
-$twitter-hover-offset-y: -36px;
-$twitter-hover-width: 35px;
-$twitter-hover-height: 36px;
-$twitter-hover-total-width: 140px;
-$twitter-hover-total-height: 108px;
-$twitter-hover-image: 'icons.png';
-$twitter-hover: (105px, 36px, -105px, -36px, 35px, 36px, 140px, 108px, 'icons.png', 'twitter_hover', );
+$twitter: (0px, 36px, 0px, -36px, 35px, 36px, 105px, 72px, 'icons.png', 'twitter', );
 $vkontakte-name: 'vkontakte';
-$vkontakte-x: 0px;
-$vkontakte-y: 72px;
-$vkontakte-offset-x: 0px;
-$vkontakte-offset-y: -72px;
+$vkontakte-x: 35px;
+$vkontakte-y: 36px;
+$vkontakte-offset-x: -35px;
+$vkontakte-offset-y: -36px;
 $vkontakte-width: 35px;
 $vkontakte-height: 36px;
-$vkontakte-total-width: 140px;
-$vkontakte-total-height: 108px;
+$vkontakte-total-width: 105px;
+$vkontakte-total-height: 72px;
 $vkontakte-image: 'icons.png';
-$vkontakte: (0px, 72px, 0px, -72px, 35px, 36px, 140px, 108px, 'icons.png', 'vkontakte', );
-$vkontakte-hover-name: 'vkontakte_hover';
-$vkontakte-hover-x: 35px;
-$vkontakte-hover-y: 72px;
-$vkontakte-hover-offset-x: -35px;
-$vkontakte-hover-offset-y: -72px;
-$vkontakte-hover-width: 35px;
-$vkontakte-hover-height: 36px;
-$vkontakte-hover-total-width: 140px;
-$vkontakte-hover-total-height: 108px;
-$vkontakte-hover-image: 'icons.png';
-$vkontakte-hover: (35px, 72px, -35px, -72px, 35px, 36px, 140px, 108px, 'icons.png', 'vkontakte_hover', );
+$vkontakte: (35px, 36px, -35px, -36px, 35px, 36px, 105px, 72px, 'icons.png', 'vkontakte', );
 $youtube-name: 'youtube';
 $youtube-x: 70px;
-$youtube-y: 72px;
+$youtube-y: 36px;
 $youtube-offset-x: -70px;
-$youtube-offset-y: -72px;
+$youtube-offset-y: -36px;
 $youtube-width: 35px;
 $youtube-height: 36px;
-$youtube-total-width: 140px;
-$youtube-total-height: 108px;
+$youtube-total-width: 105px;
+$youtube-total-height: 72px;
 $youtube-image: 'icons.png';
-$youtube: (70px, 72px, -70px, -72px, 35px, 36px, 140px, 108px, 'icons.png', 'youtube', );
-$youtube-hover-name: 'youtube_hover';
-$youtube-hover-x: 105px;
-$youtube-hover-y: 72px;
-$youtube-hover-offset-x: -105px;
-$youtube-hover-offset-y: -72px;
-$youtube-hover-width: 35px;
-$youtube-hover-height: 36px;
-$youtube-hover-total-width: 140px;
-$youtube-hover-total-height: 108px;
-$youtube-hover-image: 'icons.png';
-$youtube-hover: (105px, 72px, -105px, -72px, 35px, 36px, 140px, 108px, 'icons.png', 'youtube_hover', );
-$spritesheet-width: 140px;
-$spritesheet-height: 108px;
+$youtube: (70px, 36px, -70px, -36px, 35px, 36px, 105px, 72px, 'icons.png', 'youtube', );
+$facebook-2x-name: 'facebook-2x';
+$facebook-2x-x: 0px;
+$facebook-2x-y: 0px;
+$facebook-2x-offset-x: 0px;
+$facebook-2x-offset-y: 0px;
+$facebook-2x-width: 70px;
+$facebook-2x-height: 72px;
+$facebook-2x-total-width: 210px;
+$facebook-2x-total-height: 144px;
+$facebook-2x-image: 'icons-2x.png';
+$facebook-2x: (0px, 0px, 0px, 0px, 70px, 72px, 210px, 144px, 'icons-2x.png', 'facebook-2x', );
+$google-plus-2x-name: 'google-plus-2x';
+$google-plus-2x-x: 70px;
+$google-plus-2x-y: 0px;
+$google-plus-2x-offset-x: -70px;
+$google-plus-2x-offset-y: 0px;
+$google-plus-2x-width: 70px;
+$google-plus-2x-height: 72px;
+$google-plus-2x-total-width: 210px;
+$google-plus-2x-total-height: 144px;
+$google-plus-2x-image: 'icons-2x.png';
+$google-plus-2x: (70px, 0px, -70px, 0px, 70px, 72px, 210px, 144px, 'icons-2x.png', 'google-plus-2x', );
+$odno-2x-name: 'odno-2x';
+$odno-2x-x: 140px;
+$odno-2x-y: 0px;
+$odno-2x-offset-x: -140px;
+$odno-2x-offset-y: 0px;
+$odno-2x-width: 70px;
+$odno-2x-height: 72px;
+$odno-2x-total-width: 210px;
+$odno-2x-total-height: 144px;
+$odno-2x-image: 'icons-2x.png';
+$odno-2x: (140px, 0px, -140px, 0px, 70px, 72px, 210px, 144px, 'icons-2x.png', 'odno-2x', );
+$twitter-2x-name: 'twitter-2x';
+$twitter-2x-x: 0px;
+$twitter-2x-y: 72px;
+$twitter-2x-offset-x: 0px;
+$twitter-2x-offset-y: -72px;
+$twitter-2x-width: 70px;
+$twitter-2x-height: 72px;
+$twitter-2x-total-width: 210px;
+$twitter-2x-total-height: 144px;
+$twitter-2x-image: 'icons-2x.png';
+$twitter-2x: (0px, 72px, 0px, -72px, 70px, 72px, 210px, 144px, 'icons-2x.png', 'twitter-2x', );
+$vkontakte-2x-name: 'vkontakte-2x';
+$vkontakte-2x-x: 70px;
+$vkontakte-2x-y: 72px;
+$vkontakte-2x-offset-x: -70px;
+$vkontakte-2x-offset-y: -72px;
+$vkontakte-2x-width: 70px;
+$vkontakte-2x-height: 72px;
+$vkontakte-2x-total-width: 210px;
+$vkontakte-2x-total-height: 144px;
+$vkontakte-2x-image: 'icons-2x.png';
+$vkontakte-2x: (70px, 72px, -70px, -72px, 70px, 72px, 210px, 144px, 'icons-2x.png', 'vkontakte-2x', );
+$youtube-2x-name: 'youtube-2x';
+$youtube-2x-x: 140px;
+$youtube-2x-y: 72px;
+$youtube-2x-offset-x: -140px;
+$youtube-2x-offset-y: -72px;
+$youtube-2x-width: 70px;
+$youtube-2x-height: 72px;
+$youtube-2x-total-width: 210px;
+$youtube-2x-total-height: 144px;
+$youtube-2x-image: 'icons-2x.png';
+$youtube-2x: (140px, 72px, -140px, -72px, 70px, 72px, 210px, 144px, 'icons-2x.png', 'youtube-2x', );
+$spritesheet-width: 105px;
+$spritesheet-height: 72px;
 $spritesheet-image: 'icons.png';
-$spritesheet-sprites: ($facebook, $facebook-hover, $google-plus, $google-plus-hover, $odno, $odno-hover, $twitter, $twitter-hover, $vkontakte, $vkontakte-hover, $youtube, $youtube-hover, );
-$spritesheet: (140px, 108px, 'icons.png', $spritesheet-sprites, );
+$spritesheet-sprites: ($facebook, $google-plus, $odno, $twitter, $vkontakte, $youtube, );
+$spritesheet: (105px, 72px, 'icons.png', $spritesheet-sprites, );
+$retina-spritesheet-width: 210px;
+$retina-spritesheet-height: 144px;
+$retina-spritesheet-image: 'icons-2x.png';
+$retina-spritesheet-sprites: ($facebook-2x, $google-plus-2x, $odno-2x, $twitter-2x, $vkontakte-2x, $youtube-2x, );
+$retina-spritesheet: (210px, 144px, 'icons-2x.png', $retina-spritesheet-sprites, );
+
+/*
+These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+
+The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
+*/
+$facebook-group-name: 'facebook';
+$facebook-group: ('facebook', $facebook, $facebook-2x, );
+$google-plus-group-name: 'google-plus';
+$google-plus-group: ('google-plus', $google-plus, $google-plus-2x, );
+$odno-group-name: 'odno';
+$odno-group: ('odno', $odno, $odno-2x, );
+$twitter-group-name: 'twitter';
+$twitter-group: ('twitter', $twitter, $twitter-2x, );
+$vkontakte-group-name: 'vkontakte';
+$vkontakte-group: ('vkontakte', $vkontakte, $vkontakte-2x, );
+$youtube-group-name: 'youtube';
+$youtube-group: ('youtube', $youtube, $youtube-2x, );
+$retina-groups: ($facebook-group, $google-plus-group, $odno-group, $twitter-group, $vkontakte-group, $youtube-group, );
 
 /*
 The provided mixins are intended to be used with the array-like variables
@@ -187,6 +211,36 @@ The provided mixins are intended to be used with the array-like variables
 }
 
 /*
+The `retina-sprite` mixin sets up rules and a media query for a sprite/retina sprite.
+  It should be used with a "retina group" variable.
+
+The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+
+$icon-home-group: ('icon-home', $icon-home, $icon-home-2x, );
+
+.icon-home {
+  @include retina-sprite($icon-home-group);
+}
+*/
+@mixin sprite-background-size($sprite) {
+  $sprite-total-width: nth($sprite, 7);
+  $sprite-total-height: nth($sprite, 8);
+  background-size: $sprite-total-width $sprite-total-height;
+}
+
+@mixin retina-sprite($retina-group) {
+  $normal-sprite: nth($retina-group, 2);
+  $retina-sprite: nth($retina-group, 3);
+  @include sprite($normal-sprite);
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    @include sprite-image($retina-sprite);
+    @include sprite-background-size($normal-sprite);
+  }
+}
+
+/*
 The `sprites` mixin generates identical output to the CSS template
   but can be overridden inside of SCSS
 
@@ -197,6 +251,21 @@ The `sprites` mixin generates identical output to the CSS template
     $sprite-name: nth($sprite, 10);
     .#{$sprite-name} {
       @include sprite($sprite);
+    }
+  }
+}
+
+/*
+The `retina-sprites` mixin generates a CSS rule and media query for retina groups
+  This yields the same output as CSS retina template but can be overridden in SCSS
+
+@include retina-sprites($retina-groups);
+*/
+@mixin retina-sprites($retina-groups) {
+  @each $retina-group in $retina-groups {
+    $sprite-name: nth($retina-group, 1);
+    .#{$sprite-name} {
+      @include retina-sprite($retina-group);
     }
   }
 }

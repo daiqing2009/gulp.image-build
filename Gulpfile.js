@@ -19,17 +19,14 @@ gulp.task('image:clean', function() {
 gulp.task('sprite:build', function() {
 	var spriteData = gulp.src('./src/assets/icons/*.png')
 		.pipe(spritesmith({
-//			retinaSrcFilter: ['./src/assets/icons/*-2x.png'],
-			cssSelector: function (sprite) {
-				return '.icon-' + sprite.name;
-			},
-//			retinaImgName: 'icons-2x.png',
+			retinaSrcFilter: ['./src/assets/icons/*-2x.png'],
+			retinaImgName: 'icons-2x.png',
 			cssName: '_icons.scss',
 			imgName: 'icons.png'
 		}));
 		
-	spriteData.img.pipe(gulp.dest('./src/assets/images/'));
-	 spriteData.css.pipe(gulp.dest('./src/assets/sass/'));
+	spriteData.img.pipe(gulp.dest('./src/assets/images'));
+	spriteData.css.pipe(gulp.dest('./src/assets/sass'));
 });
 
 // build task
