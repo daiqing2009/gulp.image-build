@@ -1,0 +1,202 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$facebook-name: 'facebook';
+$facebook-x: 35px;
+$facebook-y: 0px;
+$facebook-offset-x: -35px;
+$facebook-offset-y: 0px;
+$facebook-width: 35px;
+$facebook-height: 36px;
+$facebook-total-width: 140px;
+$facebook-total-height: 108px;
+$facebook-image: 'icons.png';
+$facebook: (35px, 0px, -35px, 0px, 35px, 36px, 140px, 108px, 'icons.png', 'facebook', );
+$facebook-hover-name: 'facebook_hover';
+$facebook-hover-x: 105px;
+$facebook-hover-y: 0px;
+$facebook-hover-offset-x: -105px;
+$facebook-hover-offset-y: 0px;
+$facebook-hover-width: 35px;
+$facebook-hover-height: 36px;
+$facebook-hover-total-width: 140px;
+$facebook-hover-total-height: 108px;
+$facebook-hover-image: 'icons.png';
+$facebook-hover: (105px, 0px, -105px, 0px, 35px, 36px, 140px, 108px, 'icons.png', 'facebook_hover', );
+$google-plus-name: 'google-plus';
+$google-plus-x: 70px;
+$google-plus-y: 0px;
+$google-plus-offset-x: -70px;
+$google-plus-offset-y: 0px;
+$google-plus-width: 35px;
+$google-plus-height: 36px;
+$google-plus-total-width: 140px;
+$google-plus-total-height: 108px;
+$google-plus-image: 'icons.png';
+$google-plus: (70px, 0px, -70px, 0px, 35px, 36px, 140px, 108px, 'icons.png', 'google-plus', );
+$google-plus-hover-name: 'google-plus_hover';
+$google-plus-hover-x: 0px;
+$google-plus-hover-y: 36px;
+$google-plus-hover-offset-x: 0px;
+$google-plus-hover-offset-y: -36px;
+$google-plus-hover-width: 35px;
+$google-plus-hover-height: 36px;
+$google-plus-hover-total-width: 140px;
+$google-plus-hover-total-height: 108px;
+$google-plus-hover-image: 'icons.png';
+$google-plus-hover: (0px, 36px, 0px, -36px, 35px, 36px, 140px, 108px, 'icons.png', 'google-plus_hover', );
+$odno-name: 'odno';
+$odno-x: 35px;
+$odno-y: 36px;
+$odno-offset-x: -35px;
+$odno-offset-y: -36px;
+$odno-width: 35px;
+$odno-height: 36px;
+$odno-total-width: 140px;
+$odno-total-height: 108px;
+$odno-image: 'icons.png';
+$odno: (35px, 36px, -35px, -36px, 35px, 36px, 140px, 108px, 'icons.png', 'odno', );
+$odno-hover-name: 'odno_hover';
+$odno-hover-x: 70px;
+$odno-hover-y: 36px;
+$odno-hover-offset-x: -70px;
+$odno-hover-offset-y: -36px;
+$odno-hover-width: 35px;
+$odno-hover-height: 36px;
+$odno-hover-total-width: 140px;
+$odno-hover-total-height: 108px;
+$odno-hover-image: 'icons.png';
+$odno-hover: (70px, 36px, -70px, -36px, 35px, 36px, 140px, 108px, 'icons.png', 'odno_hover', );
+$twitter-name: 'twitter';
+$twitter-x: 0px;
+$twitter-y: 0px;
+$twitter-offset-x: 0px;
+$twitter-offset-y: 0px;
+$twitter-width: 35px;
+$twitter-height: 36px;
+$twitter-total-width: 140px;
+$twitter-total-height: 108px;
+$twitter-image: 'icons.png';
+$twitter: (0px, 0px, 0px, 0px, 35px, 36px, 140px, 108px, 'icons.png', 'twitter', );
+$twitter-hover-name: 'twitter_hover';
+$twitter-hover-x: 105px;
+$twitter-hover-y: 36px;
+$twitter-hover-offset-x: -105px;
+$twitter-hover-offset-y: -36px;
+$twitter-hover-width: 35px;
+$twitter-hover-height: 36px;
+$twitter-hover-total-width: 140px;
+$twitter-hover-total-height: 108px;
+$twitter-hover-image: 'icons.png';
+$twitter-hover: (105px, 36px, -105px, -36px, 35px, 36px, 140px, 108px, 'icons.png', 'twitter_hover', );
+$vkontakte-name: 'vkontakte';
+$vkontakte-x: 0px;
+$vkontakte-y: 72px;
+$vkontakte-offset-x: 0px;
+$vkontakte-offset-y: -72px;
+$vkontakte-width: 35px;
+$vkontakte-height: 36px;
+$vkontakte-total-width: 140px;
+$vkontakte-total-height: 108px;
+$vkontakte-image: 'icons.png';
+$vkontakte: (0px, 72px, 0px, -72px, 35px, 36px, 140px, 108px, 'icons.png', 'vkontakte', );
+$vkontakte-hover-name: 'vkontakte_hover';
+$vkontakte-hover-x: 35px;
+$vkontakte-hover-y: 72px;
+$vkontakte-hover-offset-x: -35px;
+$vkontakte-hover-offset-y: -72px;
+$vkontakte-hover-width: 35px;
+$vkontakte-hover-height: 36px;
+$vkontakte-hover-total-width: 140px;
+$vkontakte-hover-total-height: 108px;
+$vkontakte-hover-image: 'icons.png';
+$vkontakte-hover: (35px, 72px, -35px, -72px, 35px, 36px, 140px, 108px, 'icons.png', 'vkontakte_hover', );
+$youtube-name: 'youtube';
+$youtube-x: 70px;
+$youtube-y: 72px;
+$youtube-offset-x: -70px;
+$youtube-offset-y: -72px;
+$youtube-width: 35px;
+$youtube-height: 36px;
+$youtube-total-width: 140px;
+$youtube-total-height: 108px;
+$youtube-image: 'icons.png';
+$youtube: (70px, 72px, -70px, -72px, 35px, 36px, 140px, 108px, 'icons.png', 'youtube', );
+$youtube-hover-name: 'youtube_hover';
+$youtube-hover-x: 105px;
+$youtube-hover-y: 72px;
+$youtube-hover-offset-x: -105px;
+$youtube-hover-offset-y: -72px;
+$youtube-hover-width: 35px;
+$youtube-hover-height: 36px;
+$youtube-hover-total-width: 140px;
+$youtube-hover-total-height: 108px;
+$youtube-hover-image: 'icons.png';
+$youtube-hover: (105px, 72px, -105px, -72px, 35px, 36px, 140px, 108px, 'icons.png', 'youtube_hover', );
+$spritesheet-width: 140px;
+$spritesheet-height: 108px;
+$spritesheet-image: 'icons.png';
+$spritesheet-sprites: ($facebook, $facebook-hover, $google-plus, $google-plus-hover, $odno, $odno-hover, $twitter, $twitter-hover, $vkontakte, $vkontakte-hover, $youtube, $youtube-hover, );
+$spritesheet: (140px, 108px, 'icons.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Gulp",
+  "version": "1.0.0",
+  "description": "Gulpfile.js that works on images",
+  "main": "Gulpfile.js",
+  "author": "Zura Gabievi <zura.gabievi@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "set ENV=development && gulp image",
+    "start": "set ENV=production && gulp image"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-cache": "^0.2.9",
+    "gulp-if": "^1.2.5",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rimraf": "^0.1.1",
+    "gulp-size": "^1.2.1",
+    "gulp-sync": "^0.1.4",
+    "gulp.spritesmith": "^3.8.0",
+    "imagemin-pngquant": "^4.1.0",
+    "sprity": "^1.0.3"
+  }
+}
