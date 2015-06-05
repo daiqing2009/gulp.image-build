@@ -4,6 +4,8 @@ Gulpfile.js that works on js files
 [![GitHub version](https://badge.fury.io/gh/zgabievi%2Fgulp.image-build.svg)](http://badge.fury.io/gh/zgabievi%2Fgulp.image-build)
 [![Build Status](https://semaphoreci.com/api/v1/projects/ea10fe32-87a6-4059-92fe-8294dc5cab1b/444290/shields_badge.svg)](https://semaphoreci.com/zgabievi/gulp-image-build)
 [![Codacy Badge](https://www.codacy.com/project/badge/2bebbd2130c84de08dba940383e335ca)](https://www.codacy.com/app/zgabievi/gulp-image-build)
+[![Dependency Status](https://david-dm.org/zgabievi/gulp.image-build.svg)](https://david-dm.org/zgabievi/gulp.image-build)
+[![devDependency Status](https://david-dm.org/zgabievi/gulp.image-build/dev-status.svg)](https://david-dm.org/zgabievi/gulp.image-build#info=devDependencies)
 
 ## Dependencies
 - ["gulp": "^3.8.11"](https://npmjs.org/package/gulp/)
