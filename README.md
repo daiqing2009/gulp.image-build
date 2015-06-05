@@ -1,6 +1,7 @@
 # gulp.image-build
 Gulpfile.js that works on js files
 
+[![GitHub version](https://badge.fury.io/gh/zgabievi%2Fgulp.image-build.svg)](http://badge.fury.io/gh/zgabievi%2Fgulp.image-build)
 [![Build Status](https://semaphoreci.com/api/v1/projects/ea10fe32-87a6-4059-92fe-8294dc5cab1b/444290/shields_badge.svg)](https://semaphoreci.com/zgabievi/gulp-image-build)
 
 ## Dependencies
