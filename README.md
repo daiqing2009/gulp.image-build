@@ -1,6 +1,8 @@
 # gulp.image-build
 Gulpfile.js that works on js files
 
+[![Build Status](https://semaphoreci.com/api/v1/projects/ea10fe32-87a6-4059-92fe-8294dc5cab1b/444290/shields_badge.svg)](https://semaphoreci.com/zgabievi/gulp-image-build)
+
 ## Dependencies
 - ["gulp": "^3.8.11"](https://npmjs.org/package/gulp/)
 - ["del": "^1.2.0"](https://www.npmjs.com/package/del/)
