@@ -24,18 +24,18 @@ it('should minpify images after copy', function (cb) {
     this.timeout(30000);
     gulp.start('image:copy',function(err){
 //        console.log("err="+ err);
-        assert(isNullOrUndefined(err),"image can not be copied");
+        assert(util.isNullOrUndefined(err),"image can not be copied");
         assert(copiedFile(config.imgSrc,config.destImg), "image should be copied to dist");
         gulp.start('image:min',function(err) {
-            assert(isNullOrUndefined(err),"image can not be compressed");
+            assert(util.isNullOrUndefined(err),"image can not be compressed");
             assert(compressedFile(config.imgSrc,config.destImg), "compressed image should override copied images");
             //compressed file during partial copy
             touchFiles(partialImgSrc);
             gulp.start('image:copy',function(err){
-                assert(isNullOrUndefined(err),"image can not be copied again");
+                assert(util.isNullOrUndefined(err),"image can not be copied again");
                 assert(!compressedFile(config.imgSrc,config.destImg), "part of compressed images have been overiden");
                 gulp.start('image:min',function(err){
-                    assert(isNullOrUndefined(err),"image can not be compressed again");
+                    assert(util.isNullOrUndefined(err),"image can not be compressed again");
                     assert(compressedFile(config.imgSrc,config.destImg), "compressed image should override copied images");
                     cb();
                 });
@@ -56,7 +56,6 @@ it('image watch trigger copying',function(cb){
         }
         console.log('done!');
     });
-//    this.setTimeout(20000);
     assert(copiedFile(config.imgSrc,config.destImg),"more image should be copied to destined folder in dist");
     gulp.stop('image:watch');
     cb();
@@ -109,7 +108,8 @@ function compressedFile(src,dest){
 function touchFiles(src){
     var files = glob.sync(src);
     files.forEach(function(file){
-        fs.utimesSync(file, Date.now(), Date.now());
+        fs.utimesSync(file, NaN, NaN);
+//        console.log("stat="+util.inspect(fs.statSync(file)));
     });
 }
 
