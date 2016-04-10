@@ -6,7 +6,7 @@
   "author": "Qing Dai <qing.dai@baozun.com>",
   "license": "MIT",
   "scripts": {
-    "test": "xo && mocha --timeout 50000"
+    "test": "mocha --timeout 50000"
   },
   "dependencies": {
     "del": "^1.2.0",
