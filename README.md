@@ -24,8 +24,8 @@ Gulpfile.js that works on js files
 Download repository and in your command line run `npm install`, this will download `node_modules` and you are about to go.
 
 - `gulp cache:clear` - clears cache for compressed images
-- `gulp image:clean` - cleans `./dist/assets/images` directory
+- `gulp image:clean` - cleans not compreseed images under configured `./dist/` directory 
 - `gulp sprite:build` - generates **icons.png**, **icons-2x.png** and **_icons.scss** files and saves them in source directory
-- `gulp image:build` - optimizes image files from `./src/assets/images`. Supported extensions are: `png, svg, jpeg, jpg, gif`
+- `gulp image:min` - optimizes image files from `./src/assets/images`. Supported extensions are: `png, svg, jpeg, jpg, gif`
 - `gulp image:watch` - watches images and icons for chages
 - `gulp image` - default task that clears cache, generaetes sprite and optimizes images
