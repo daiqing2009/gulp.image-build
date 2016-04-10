@@ -3,11 +3,19 @@
   "version": "1.0.0",
   "description": "Gulpfile.js that works on images",
   "main": "Gulpfile.js",
-  "author": "Zura Gabievi <zura.gabievi@gmail.com>",
+  "author": "Qing Dai <qing.dai@baozun.com>",
   "license": "MIT",
-  "devDependencies": {
+  "scripts": {
+    "test": "xo && mocha --timeout 50000"
+  },
+  "dependencies": {
     "del": "^1.2.0",
     "gulp": "^3.8.11",
+    "gulp-watch": "^4.3.5",
+    "gulp-newer": "^1.1.0",
+    "gulp-ignore": "^2.0.1",
+    "gulp-zhitu": "^1.0.3",
+    "gulp-batch": "^1.0.5",
     "gulp-cache": "^0.2.9",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.2.1",
@@ -17,5 +25,29 @@
     "gulp-sync": "^0.1.4",
     "gulp.spritesmith": "^3.8.0",
     "imagemin-pngquant": "^4.1.0"
-  }
+  },
+  "devDependencies": {
+    "ncp": "^2.0.0",
+    "mocha": "*",
+    "xo": "*",
+    "glob":"^7.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/daiqing2009/gulp-imageisux/issues"
+  },
+  "homepage": "https://github.com/daiqing2009/gulp-imageisux",
+  "_id": "gulp-zhitu@1.0.1",
+  "dist": {},
+  "_from": "gulp-zhitu@",
+  "_npmVersion": "1.4.14",
+  "_npmUser": {
+    "name": "qing.dai",
+    "email": "qing.dai@baozun.cn"
+  },
+  "maintainers": [
+    {
+      "name": "qing.dai",
+      "email": "qing.dai@baozun.cn"
+    }
+  ]
 }
