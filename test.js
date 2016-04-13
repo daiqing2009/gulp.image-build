@@ -17,8 +17,7 @@ require('./gulpfile.js');
 config.moreImgSrc='./src/moreAssets/images';
 //config.strImgSrc=path.dirname(config.imgSrc[0]);  result: ./src/assets/images/** 多了**
 config.strImgSrc =  './src/assets/images/';
-var partialImgSrc =  './src/assets/images/payment/**/*.{png,svg,jpeg,jpg,gif}';
-
+var partialImgSrc =  './src/assets/images/payment/*.{png,svg,jpeg,jpg,gif}';
 
 it('should minpify images after copy', function (cb) {
     this.timeout(30000);
@@ -26,6 +25,8 @@ it('should minpify images after copy', function (cb) {
 //        console.log("err="+ err);
         assert(util.isNullOrUndefined(err),"image can not be copied");
         assert(copiedFile(config.imgSrc,config.destImg), "image should be copied to dist");
+        assert(!!compressedFile(config.imgSrc,config.destImg), "images have not been compressed yet");
+
         gulp.start('image:min',function(err) {
             assert(util.isNullOrUndefined(err),"image can not be compressed");
             assert(compressedFile(config.imgSrc,config.destImg), "compressed image should override copied images");
@@ -33,7 +34,8 @@ it('should minpify images after copy', function (cb) {
             touchFiles(partialImgSrc);
             gulp.start('image:copy',function(err){
                 assert(util.isNullOrUndefined(err),"image can not be copied again");
-                assert(!compressedFile(config.imgSrc,config.destImg), "part of compressed images have been overiden");
+                assert(!!compressedFile(config.imgSrc,config.destImg), "part of compressed images have been overiden");
+                touchFiles(partialImgSrc);
                 gulp.start('image:min',function(err){
                     assert(util.isNullOrUndefined(err),"image can not be compressed again");
                     assert(compressedFile(config.imgSrc,config.destImg), "compressed image should override copied images");
@@ -89,27 +91,32 @@ function compressedFile(src,dest){
 //   console.log("src="+src+";dest="+dest);
     src.forEach(function(srcFile){
 //        console.log("srcFile="+srcFile);
+        var destPath;
         var files = glob.sync(srcFile);
-        var destPath = ".";
-        //console.log("files="+files);
+//        console.log("files="+files);
 
-        files.forEach(function(file){
-            destPath = path.resolve(dest,path.relative(config.strImgSrc,file));
-//            console.log("destPath="+destPath);
-            if( util.inspect(fs.statSync(file)).size<=util.inspect(fs.statSync(destPath)).size){
+        for(var i in files){
+//            console.log("file="+files[i]);
+            destPath = path.resolve(dest, path.relative(config.strImgSrc, files[i]));
+            var srcSize = fs.statSync(files[i]).size;
+            var distSize = fs.statSync(destPath).size;
+//            console.log("srcSize="+srcSize +"&distSize="+distSize);
+            if(srcSize <= distSize){
+               console.log("found not compressed");
                 return false;
             }
-        });
+        }
     });
-
     return true;
 }
 
 function touchFiles(src){
     var files = glob.sync(src);
     files.forEach(function(file){
-        fs.utimesSync(file, NaN, NaN);
+//        console.log("file="+file);
 //        console.log("stat="+util.inspect(fs.statSync(file)));
+        fs.utimesSync(file, NaN, NaN);
+//       console.log("stat="+util.inspect(fs.statSync(file)));
     });
 }
 
