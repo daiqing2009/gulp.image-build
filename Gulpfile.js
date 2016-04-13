@@ -1,11 +1,9 @@
 // gulp modules
-	var del = require('del');
 	var gulp = require('gulp');
 	var sync = require('gulp-sync')(gulp);
 	var $ = require('gulp-load-plugins')();
 	var pngquant = require('imagemin-pngquant');
 	var spritesmith = require('gulp.spritesmith');
-
 
 global.config = {
 	imgSrc:['./src/assets/images/**/*.{png,svg,jpeg,jpg,gif}'],
@@ -13,9 +11,6 @@ global.config = {
 	destImg:'./dist/assets/images',
 	re_prod_image:/\d+_\d+_\d+X\d+.png/i,
 	compressImg:true
-//	re_prod_image_2000:/\d+_\d+_2000X2000.png/i,
-//	re_prod_image_1200:/\d+_\d+_1200X1200.png/i,
-//	re_prod_image_large:/\d+_\d+_(1200X1200|2000X2000).png/i
 };
 
 // clear cache
