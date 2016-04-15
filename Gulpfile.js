@@ -17,7 +17,9 @@ global.config = {
 	gulp.task('cache:clear', function(done) {
 	return $.cache.clearAll(done);
 });
-
+/**
+ * 直接复制图片
+ */
 gulp.task('image:copy', function() {
 	return gulp.src(config.imgSrc)
 		.pipe($.newer(config.destImg))
@@ -25,7 +27,7 @@ gulp.task('image:copy', function() {
 		.pipe(gulp.dest(config.destImg));
 });
 /**
- * finalize minifying images even zhitu failed.
+ * 即使智图方案失败也可以用本地压缩
  */
 gulp.task('image:min', ['image:build'], function() {
 	return gulp.src(config.imgSrc)
@@ -44,7 +46,7 @@ gulp.task('image:min', ['image:build'], function() {
 });
 
 /**
- * minify images with two different images
+ * 使用智图和本地压缩分别压缩图片
  */
 gulp.task('image:build',['image:clean'], function() {
 	return gulp.src(config.imgSrc)
@@ -64,14 +66,13 @@ gulp.task('image:build',['image:clean'], function() {
 });
 
 /**
- * clean images that should be
+ * 清除未完成压缩的图片，
  */
 gulp.task('image:clean', function() {
 	//TODO:clear images that is too old not compressed
 
 	//TODO:clear images whose source is different from current source but create time is older:
 	// very rare case that source file changed before the compressed file is
-//	del([config.destImg+'*']);
 });
 
 // watch task

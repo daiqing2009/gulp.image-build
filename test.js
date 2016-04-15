@@ -13,8 +13,9 @@ const fs = require('fs');
 const glob = require("glob");
 const assert = require('assert');
 const path = require('path');
-require('./gulpfile.js');
-config.moreImgSrc='./src/moreAssets/images';
+require('./Gulpfile.js');
+config.moreImgDir='./src/moreAssets/images/';
+config.moreImgSrc=['./src/moreAssets/images/**/*.{png,svg,jpeg,jpg,gif}'];
 //config.strImgSrc=path.dirname(config.imgSrc[0]);  result: ./src/assets/images/** 多了**
 config.strImgSrc =  './src/assets/images/';
 var partialImgSrc =  './src/assets/images/payment/*.{png,svg,jpeg,jpg,gif}';
@@ -50,35 +51,38 @@ it('should minpify images after copy', function (cb) {
 it('image watch trigger copying',function(cb){
     this.timeout(15000);
     config.compressImg=false;
-    gulp.start('image:watch');
-    //copy new images, which should trigger watch now
-    ncp(config.moreImgSrc,config.strImgSrc , function (err) {
-        if (err) {
-            return console.error(err);
-        }
-        console.log('done!');
+    gulp.start('image:watch',function(err){
+        //copy new images, which should trigger watch now
+        ncp(config.moreImgDir,config.strImgSrc , function (err) {
+            if (err) {
+                return console.error(err);
+            }
+//        console.log('done!');
+        });
+        assert(copiedFile(config.moreImgSrc,config.destImg),"more image should be copied to destined folder in dist");
+        assert(!!compressedFile(config.moreImgSrc,config.destImg), "but not compressed");
+//        gulp.stop('image:watch');
+        cb();
     });
-    assert(copiedFile(config.imgSrc,config.destImg),"more image should be copied to destined folder in dist");
-    gulp.stop('image:watch');
-    cb();
 });
 
 it('image watch trigger compressing',function(cb){
     this.timeout(15000);
     config.compressImg=true;
-    gulp.start('image:watch');
-    //copy new images, which should trigger watch now
-    ncp(config.moreImgSrc,config.strImgSrc , function (err) {
-        if (err) {
-            //TODO: make sure when copy is slow it still works
-            return console.error(err);
-        }
-        console.log('done!');
-    });
+    gulp.start('image:watch',function(err){
+        //copy new images, which should trigger watch now
+        ncp(config.moreImgDir,config.strImgSrc , function (err) {
+            if (err) {
+                //TODO: make sure when copy is slow it still works
+                return console.error(err);
+            }
+            console.log('done!');
+        });
 
-    assert(compressedFile(config.imgSrc,config.destImg), "more images should override copied images");
-    gulp.stop('image:watch');
-    cb();
+        assert(compressedFile(config.moreImgSrc,config.destImg), "more images should override copied images");
+//        gulp.stop('image:watch');
+        cb();
+    });
 });
 
 //const relativePath = path.relative(config.strImgSrc,config.destImg);
@@ -102,7 +106,7 @@ function compressedFile(src,dest){
             var distSize = fs.statSync(destPath).size;
 //            console.log("srcSize="+srcSize +"&distSize="+distSize);
             if(srcSize <= distSize){
-               console.log("found not compressed");
+//               console.log("found not compressed");
                 return false;
             }
         }
