@@ -1,9 +1,10 @@
 // gulp modules
-	var gulp = require('gulp');
-	var sync = require('gulp-sync')(gulp);
-	var $ = require('gulp-load-plugins')();
-	var pngquant = require('imagemin-pngquant');
-	var spritesmith = require('gulp.spritesmith');
+'use strict';
+var gulp = require('gulp');
+var sync = require('gulp-sync')(gulp);
+var $ = require('gulp-load-plugins')();
+var pngquant = require('imagemin-pngquant');
+var spritesmith = require('gulp.spritesmith');
 
 global.config = {
 	imgSrc:['./src/assets/images/**/*.{png,svg,jpeg,jpg,gif}'],
@@ -22,7 +23,7 @@ global.config = {
  */
 gulp.task('image:copy', function() {
 	return gulp.src(config.imgSrc)
-		.pipe($.newer(config.destImg))
+//		.pipe($.newer(config.destImg))
 		//		.pipe($.ignore.include(config.re_prod_image))
 		.pipe(gulp.dest(config.destImg));
 });
@@ -31,10 +32,12 @@ gulp.task('image:copy', function() {
  */
 gulp.task('image:min', ['image:build'], function() {
 	return gulp.src(config.imgSrc)
-		.pipe($.newer(config.destImg))
+		//TODO: use more accurate way to determine whether to update
+//		.pipe($.newer(config.destImg))
 		.pipe($.ignore.include(config.re_prod_image))
 		.pipe($.plumber())
-		.pipe($.cache($.imagemin({
+        .pipe($.size())
+        .pipe($.cache($.imagemin({
 			progressive: true,
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
@@ -42,7 +45,6 @@ gulp.task('image:min', ['image:build'], function() {
 		.pipe($.plumber.stop())
 		.pipe($.size())
 		.pipe(gulp.dest(config.destImg));
-	//TODO: generate md5 of compressed images
 });
 
 /**
@@ -50,7 +52,7 @@ gulp.task('image:min', ['image:build'], function() {
  */
 gulp.task('image:build',['image:clean'], function() {
 	return gulp.src(config.imgSrc)
-		.pipe($.newer(config.destImg))
+//		.pipe($.newer(config.destImg))
 //		.pipe($.ignore.include(config.re_prod_image))
 		.pipe($.plumber())
 		.pipe($.size())

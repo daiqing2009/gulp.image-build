@@ -5,42 +5,50 @@
  */
 /* eslint-env mocha */
 'use strict';
-const gulp = require('gulp');
-const util = require('util');
-const ncp = require('ncp').ncp;
+var gulp = require('gulp');
+var util = require('util');
+var ncp = require('ncp').ncp;
 ncp.limit = 16;
-const fs = require('fs');
-const glob = require("glob");
-const assert = require('assert');
-const path = require('path');
+var fs = require('fs');
+var glob = require("glob");
+var assert = require('assert');
+var path = require('path');
 require('./Gulpfile.js');
 config.moreImgDir='./src/moreAssets/images/';
-config.moreImgSrc=['./src/moreAssets/images/**/*.{png,svg,jpeg,jpg,gif}'];
+config.moreImgSrc=[config.moreImgDir+'**/*.{png,svg,jpeg,jpg,gif}'];
 //config.strImgSrc=path.dirname(config.imgSrc[0]);  result: ./src/assets/images/** 多了**
 config.strImgSrc =  './src/assets/images/';
 var partialImgSrc =  './src/assets/images/payment/*.{png,svg,jpeg,jpg,gif}';
 
-it('should minpify images after copy', function (cb) {
-    this.timeout(30000);
+it('should minpify images after copy', function (done) {
+    this.timeout(120000);
+    whetherCopiedFile(config.imgSrc[0],config.destImg,false);
     gulp.start('image:copy',function(err){
 //        console.log("err="+ err);
         assert(util.isNullOrUndefined(err),"image can not be copied");
-        assert(copiedFile(config.imgSrc,config.destImg), "image should be copied to dist");
-        assert(!!compressedFile(config.imgSrc,config.destImg), "images have not been compressed yet");
+        whetherCopiedFile(config.imgSrc[0],config.destImg,true);
+        whetherCompressedFile(config.imgSrc[0],config.destImg,false);
+      //  assert(copiedFile(config.imgSrc,config.destImg), "image should be copied to dist");
+       // assert(!compressedFile(config.imgSrc,config.destImg), "images have not been compressed yet");
+        //TODO: 使用 image:clean的方法来去除未压缩的内容
+        touchFiles(config.imgSrc[0]);        //compressed file during partial copy
 
         gulp.start('image:min',function(err) {
             assert(util.isNullOrUndefined(err),"image can not be compressed");
-            assert(compressedFile(config.imgSrc,config.destImg), "compressed image should override copied images");
-            //compressed file during partial copy
+            whetherCompressedFile(config.imgSrc[0],config.destImg,true);
             touchFiles(partialImgSrc);
             gulp.start('image:copy',function(err){
                 assert(util.isNullOrUndefined(err),"image can not be copied again");
-                assert(!!compressedFile(config.imgSrc,config.destImg), "part of compressed images have been overiden");
+                whetherCompressedFile(partialImgSrc,config.destImg,false);
+
+                //TODO: 使用 image:clean 的方法来代替未压缩的内容
                 touchFiles(partialImgSrc);
                 gulp.start('image:min',function(err){
                     assert(util.isNullOrUndefined(err),"image can not be compressed again");
-                    assert(compressedFile(config.imgSrc,config.destImg), "compressed image should override copied images");
-                    cb();
+                    whetherCompressedFile(partialImgSrc,config.destImg,true);
+
+//                    assert(compressedFile(config.imgSrc,config.destImg), "compressed image should override copied images");
+                    done();
                 });
             });
             //TODO: compressed file make sure zhitu works
@@ -48,8 +56,8 @@ it('should minpify images after copy', function (cb) {
     })
 });
 
-it('image watch trigger copying',function(cb){
-    this.timeout(15000);
+it('image watch trigger copying',function(done){
+    this.timeout(60000);
     config.compressImg=false;
     gulp.start('image:watch',function(err){
         //copy new images, which should trigger watch now
@@ -59,68 +67,78 @@ it('image watch trigger copying',function(cb){
             }
 //        console.log('done!');
         });
-        assert(copiedFile(config.moreImgSrc,config.destImg),"more image should be copied to destined folder in dist");
-        assert(!!compressedFile(config.moreImgSrc,config.destImg), "but not compressed");
+        setTimeout(whetherCopiedFile(config.moreImgSrc[0],config.destImg,true),10000);
+        setTimeout(whetherCompressedFile(config.moreImgSrc[0],config.destImg,false),15000);
 //        gulp.stop('image:watch');
-        cb();
+        done();
     });
 });
 
-it('image watch trigger compressing',function(cb){
-    this.timeout(15000);
+it('image watch trigger compressing',function(done){
+    this.timeout(60000);
     config.compressImg=true;
     gulp.start('image:watch',function(err){
         //copy new images, which should trigger watch now
         ncp(config.moreImgDir,config.strImgSrc , function (err) {
             if (err) {
-                //TODO: make sure when copy is slow it still works
+                //TODO: make sure when copy is slow, it still works
                 return console.error(err);
             }
             console.log('done!');
         });
+        //TODO: wait for watch to be activated
 
-        assert(compressedFile(config.moreImgSrc,config.destImg), "more images should override copied images");
+        setTimeout(whetherCopiedFile(config.moreImgSrc[0],config.destImg,true),10000);
+        setTimeout(whetherCompressedFile(config.moreImgSrc[0],config.destImg,true),15000);
 //        gulp.stop('image:watch');
-        cb();
+        done();
     });
 });
 
-//const relativePath = path.relative(config.strImgSrc,config.destImg);
-//console.log("relativePath="+relativePath);
-function copiedFile(src,dest){
-//    console.log("src="+src+";dest="+dest);
-    return true;
-}
-function compressedFile(src,dest){
-//   console.log("src="+src+";dest="+dest);
-    src.forEach(function(srcFile){
-//        console.log("srcFile="+srcFile);
-        var destPath;
-        var files = glob.sync(srcFile);
-//        console.log("files="+files);
-
-        for(var i in files){
-//            console.log("file="+files[i]);
-            destPath = path.resolve(dest, path.relative(config.strImgSrc, files[i]));
-            var srcSize = fs.statSync(files[i]).size;
-            var distSize = fs.statSync(destPath).size;
-//            console.log("srcSize="+srcSize +"&distSize="+distSize);
-            if(srcSize <= distSize){
-//               console.log("found not compressed");
-                return false;
-            }
-        }
+function whetherCopiedFile(src,dest,isOrNot){
+    var message = "file should %1be copied to %2";
+    glob(src,function(err, files){
+        assert(util.isNullOrUndefined(err),"glob pattern should be ok");
+//        console.log("srcFile="+srcFile+";dest="+dest);
+        files.forEach(function(srcFile){
+            var destPath = path.resolve(dest, path.relative(config.strImgSrc, srcFile));
+            fs.access(destPath,fs.R_OK | fs.W_OK, function(err){
+                if(isOrNot){
+                    assert(util.isNullOrUndefined(err),message.replace(/%2/,destPath).replace(/%1/,isOrNot?"":"Not "));
+                }else{
+                    assert(!util.isNullOrUndefined(err), message.replace(/%2/,destPath).replace(/%1/,isOrNot?"":"Not "));
+                }
+            });
+        });
     });
-    return true;
+}
+
+function whetherCompressedFile(src,dest,isOrNot){
+    var message = "file should %1be compressed to %2";
+    glob(src,function(err, files){
+        assert(util.isNullOrUndefined(err),"image can not be compressed");
+        files.forEach(function(srcFile){
+            var destPath = path.resolve(dest, path.relative(config.strImgSrc, srcFile));
+            var srcStat = fs.statSync(srcFile);
+            var distStat = fs.statSync(destPath);
+            assert.equal(srcStat.size > distStat.size,isOrNot, message.replace(/%2/,destPath).replace(/%1/,isOrNot?"":"Not "));
+        });
+    });
+//   console.log("src="+src+";dest="+dest);
 }
 
 function touchFiles(src){
+//    console.log("touchFiles start");
+//    var closure = null;
     var files = glob.sync(src);
     files.forEach(function(file){
 //        console.log("file="+file);
 //        console.log("stat="+util.inspect(fs.statSync(file)));
         fs.utimesSync(file, NaN, NaN);
-//       console.log("stat="+util.inspect(fs.statSync(file)));
+//       console.log("file.mtime="+fs.statSync(file).mtime);
+//        closure =  file;
     });
+//    console.log(closure);
+//    console.log("touchFiles end");
 }
 
